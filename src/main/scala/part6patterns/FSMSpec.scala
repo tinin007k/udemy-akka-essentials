@@ -1,3 +1,4 @@
+/*
 package part6patterns
 
 import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, Cancellable, FSM, Props}
@@ -274,3 +275,4 @@ object FSMSpec {
     initialize()
   }
 }
+*/

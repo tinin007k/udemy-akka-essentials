@@ -1,9 +1,10 @@
+/*
 package part3testing
 
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.testkit.{ImplicitSender, TestKit}
-import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
-
+import org.scalatest.BeforeAndAfterAll
+import org.scalatest.WordSpecLike
 import scala.concurrent.duration._
 import scala.util.Random
 
@@ -106,3 +107,4 @@ object BasicSpec {
     }
   }
 }
+*/

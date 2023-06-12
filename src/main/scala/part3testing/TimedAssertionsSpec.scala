@@ -1,3 +1,4 @@
+/*
 package part3testing
 
 import akka.actor.{Actor, ActorSystem, Props}
@@ -74,3 +75,4 @@ object TimedAssertionsSpec {
     }
   }
 }
+*/

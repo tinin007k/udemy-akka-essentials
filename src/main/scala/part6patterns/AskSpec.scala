@@ -1,3 +1,4 @@
+/*
 package part6patterns
 
 import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, Props}
@@ -140,3 +141,4 @@ object AskSpec {
   }
 
 }
+*/

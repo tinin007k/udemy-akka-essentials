@@ -3,10 +3,12 @@ package part4faulttolerance
 import akka.actor.SupervisorStrategy.{Escalate, Restart, Resume, Stop}
 import akka.actor.{Actor, ActorRef, ActorSystem, AllForOneStrategy, OneForOneStrategy, Props, SupervisorStrategy, Terminated}
 import akka.testkit.{EventFilter, ImplicitSender, TestKit}
-import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
+import org.scalatest.{BeforeAndAfterAll}
+import org.scalatest.wordspec.AnyWordSpecLike
+
 
 class SupervisionSpec extends TestKit(ActorSystem("SupervisionSpec"))
-  with ImplicitSender with WordSpecLike with BeforeAndAfterAll {
+  with ImplicitSender with AnyWordSpecLike with BeforeAndAfterAll {
 
   override def afterAll(): Unit = {
     TestKit.shutdownActorSystem(system)

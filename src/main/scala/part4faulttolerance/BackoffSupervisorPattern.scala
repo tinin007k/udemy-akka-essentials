@@ -5,6 +5,7 @@ import java.io.File
 import akka.actor.SupervisorStrategy.Stop
 import akka.actor.{Actor, ActorLogging, ActorSystem, OneForOneStrategy, Props}
 import akka.pattern.{Backoff, BackoffSupervisor}
+import scala.language.postfixOps
 
 import scala.concurrent.duration._
 import scala.io.Source

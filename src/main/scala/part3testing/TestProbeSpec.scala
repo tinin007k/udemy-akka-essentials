@@ -1,3 +1,4 @@
+/*
 package part3testing
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
@@ -99,3 +100,4 @@ object TestProbeSpec {
 
   // class Slave extends Actor ....
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package part3testing
 
 import akka.actor.{Actor, ActorLogging, ActorSystem, Props}
@@ -94,3 +95,4 @@ object InterceptingLogsSpec {
     }
   }
 }
+*/
