@@ -161,4 +161,5 @@ object ActorCapabilities extends App {
 
   person ! LiveTheLife(account)
 
+  println("new commit for test")
 }
