@@ -1,6 +1,6 @@
 package selfpractice.part2actors
 
-import akka.actor.{Actor, Props}
+import akka.actor.{Actor, ActorRef, Props}
 import selfpractice.part2actors.ChildActorPractice.WordCountWorker.Task
 
 object ChildActorPractice extends  App{
@@ -11,23 +11,22 @@ object ChildActorPractice extends  App{
     case class WordCountReply(count:Int)
   }
 
-  class WordCounterMaster extends Actor{
+  class WordCounterMaster extends Actor {
+
     import WordCounterMaster._
-    var nWorker=0
+
     override def receive: Receive = {
       case Initialize(nChildren) =>
-        nWorker=nChildren
-        for(x <- 0 to nChildren) {
-          context.actorOf(Props[WordCountWorker], s"worker-${x}")
-        }
-      case WordCountTask(text) =>
-        val sentences=text.split("\\n")
-        for(x <- 0 until sentences.size){
-          context.actorSelection(s"/user/master/worker-${sentences.size%nWorker}") ! Task(sentences(x))
-        }
-      case WordCountReply(count) =>
-        }
+        val childRefs = for (x <- 1 to nChildren) yield context.actorOf(Props[WordCountWorker], s"worker-${x}")
+        context.become(countActor(childRefs))
     }
+
+    def countActor(value: IndexedSeq[ActorRef]):Receive = {
+      case text:String =>
+    }
+  }
+
+
 
   object WordCountWorker{
     case class Task(text:String)
