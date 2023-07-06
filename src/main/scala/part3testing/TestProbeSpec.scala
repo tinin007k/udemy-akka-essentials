@@ -1,13 +1,17 @@
-/*
 package part3testing
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import akka.io.Tcp.Register
 import akka.testkit.{ImplicitSender, TestKit, TestProbe}
-import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
+import org.scalatest.BeforeAndAfterAll
+import org.scalatest.wordspec.AnyWordSpecLike
+import part5infra.Routers.Master
+
+import scala.Console.in
 
 class TestProbeSpec extends TestKit(ActorSystem("TestProbeSpec"))
   with ImplicitSender
-  with WordSpecLike
+  with AnyWordSpecLike
   with BeforeAndAfterAll {
 
   override def afterAll(): Unit = {
@@ -72,7 +76,7 @@ object TestProbeSpec {
       - slave processes the work and replies to master
       - master aggregates the result
     master sends the total count to the original requester
-   */
+    */
 
   case class Work(text: String)
   case class SlaveWork(text: String, originalRequester: ActorRef)
@@ -100,4 +104,4 @@ object TestProbeSpec {
 
   // class Slave extends Actor ....
 }
-*/
+

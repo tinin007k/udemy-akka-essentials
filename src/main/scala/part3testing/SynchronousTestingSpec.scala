@@ -1,12 +1,12 @@
-/*
 package part3testing
 
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.testkit.{CallingThreadDispatcher, TestActorRef, TestProbe}
-import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
+import org.scalatest.{BeforeAndAfterAll}
+import org.scalatest.wordspec.AnyWordSpecLike
 import scala.concurrent.duration._
 
-class SynchronousTestingSpec extends WordSpecLike with BeforeAndAfterAll {
+class SynchronousTestingSpec extends AnyWordSpecLike with BeforeAndAfterAll {
 
   implicit val system = ActorSystem("SynchronousTestingSpec")
 
@@ -53,4 +53,3 @@ object SynchronousTestingSpec {
     }
   }
 }
-*/

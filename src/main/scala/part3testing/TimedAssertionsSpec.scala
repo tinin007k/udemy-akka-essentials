@@ -1,18 +1,19 @@
-/*
 package part3testing
 
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.testkit.{ImplicitSender, TestKit, TestProbe}
 import com.typesafe.config.ConfigFactory
-import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
+import org.scalatest.BeforeAndAfterAll
+import org.scalatest.wordspec.AnyWordSpecLike
 
 import scala.concurrent.duration._
+import scala.language.postfixOps
 import scala.util.Random
 
 class TimedAssertionsSpec extends TestKit(
   ActorSystem("TimedAssertionsSpec", ConfigFactory.load().getConfig("specialTimedAssertionsConfig")))
   with ImplicitSender
-  with WordSpecLike
+  with AnyWordSpecLike
   with BeforeAndAfterAll {
 
   override def afterAll(): Unit = {
@@ -75,4 +76,3 @@ object TimedAssertionsSpec {
     }
   }
 }
-*/
