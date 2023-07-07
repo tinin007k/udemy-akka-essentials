@@ -45,8 +45,12 @@ object ActorsIntro extends App {
     }
   }
 
-  val person = actorSystem.actorOf(Person.props("Bob"))
+  val person = actorSystem.actorOf(Person.props("Bob")) //Props(new Person(arg))
   person ! "hi"
+
+  val person1 = actorSystem.actorOf(Props(classOf[Person],"Charlie")) //one more method
+
+  person1 ! "hi"
 
 
 

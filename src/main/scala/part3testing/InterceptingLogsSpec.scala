@@ -22,6 +22,7 @@ class InterceptingLogsSpec extends TestKit(ActorSystem("InterceptingLogsSpec", C
   val creditCard = "1234-1234-1234-1234"
   val invalidCreditCard = "0000-0000-0000-0000"
 
+
   "A checkout flow" should {
     "correctly log the dispatch of an order" in {
       EventFilter.info(pattern = s"Order [0-9]+ for item $item has been dispatched.", occurrences = 1) intercept {

@@ -1,11 +1,9 @@
 package part3testing
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
-import akka.io.Tcp.Register
 import akka.testkit.{ImplicitSender, TestKit, TestProbe}
 import org.scalatest.BeforeAndAfterAll
 import org.scalatest.wordspec.AnyWordSpecLike
-import part5infra.Routers.Master
 
 import scala.Console.in
 
