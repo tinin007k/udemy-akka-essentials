@@ -68,6 +68,24 @@ class SupervisionSpec extends TestKit(ActorSystem("SupervisionSpec"))
     }
   }
 
+  "The supervisor" should {
+    "kill children in case it's restarted or escalates failures" in {
+      val supervisor = system.actorOf(Props[Supervisor], "supervisor")
+      supervisor ! Props[FussyWordCounter]
+      val child = expectMsgType[ActorRef]
+
+      child ! "Akka is cool"
+      child ! Report
+      expectMsg(3)
+
+      Thread.sleep(5000)
+
+      child ! 45
+      child ! Report
+      expectMsg(0)
+    }
+  }
+
   "A kinder supervisor" should {
     "not kill children in case it's restarted or escalates failures" in {
       val supervisor = system.actorOf(Props[NoDeathOnRestartSupervisor], "supervisor")
@@ -117,7 +135,7 @@ object SupervisionSpec {
       case _: NullPointerException => Restart
       case _: IllegalArgumentException => Stop
       case _: RuntimeException => Resume
-      case _: Exception => Escalate
+      case _: Exception => Escalate //by default stop all its children.
     }
 
     override def receive: Receive = {

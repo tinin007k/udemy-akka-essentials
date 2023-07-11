@@ -1,12 +1,11 @@
 package part4faulttolerance
 
 import java.io.File
-
 import akka.actor.SupervisorStrategy.Stop
 import akka.actor.{Actor, ActorLogging, ActorSystem, OneForOneStrategy, Props}
-import akka.pattern.{Backoff, BackoffSupervisor}
-import scala.language.postfixOps
+import akka.pattern.{Backoff, BackoffOpts, BackoffSupervisor}
 
+import scala.language.postfixOps
 import scala.concurrent.duration._
 import scala.io.Source
 
@@ -38,7 +37,7 @@ object BackoffSupervisorPattern extends App {
 //  simpleActor ! ReadFile
 
   val simpleSupervisorProps = BackoffSupervisor.props(
-    Backoff.onFailure(
+    BackoffOpts.onFailure(
       Props[FileBasedPersistentActor],
       "simpleBackoffActor",
       3 seconds, // then 6s, 12s, 24s
@@ -59,7 +58,7 @@ object BackoffSupervisorPattern extends App {
    */
 
   val stopSupervisorProps = BackoffSupervisor.props(
-    Backoff.onStop(
+    BackoffOpts.onStop(
       Props[FileBasedPersistentActor],
       "stopBackoffActor",
       3 seconds,
