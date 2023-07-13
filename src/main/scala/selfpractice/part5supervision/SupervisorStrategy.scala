@@ -1,7 +1,7 @@
-package selfpractice.part2actors
+package selfpractice.part5supervision
+
 import akka.actor.{Actor, Props}
 
-import scala.concurrent.duration._
 import scala.language.postfixOps
 
 object SupervisorStrategy extends App {
@@ -9,6 +9,7 @@ object SupervisorStrategy extends App {
   class Supervisor extends Actor {
     import akka.actor.OneForOneStrategy
     import akka.actor.SupervisorStrategy._
+
     import scala.concurrent.duration._
 
     override val supervisorStrategy: OneForOneStrategy =

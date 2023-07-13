@@ -1,12 +1,12 @@
-package selfpractice.part2actors
+package selfpractice.part5supervision
 
 import akka.actor.{ActorRef, ActorSystem, Props, Terminated}
-import com.typesafe.config.{Config, ConfigFactory}
+import akka.testkit.{ImplicitSender, TestKit}
+import com.typesafe.config.ConfigFactory
 import org.scalatest.BeforeAndAfterAll
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpecLike
-import akka.testkit.{EventFilter, ImplicitSender, TestKit}
-import selfpractice.part2actors.SupervisorStrategy.{Child, Supervisor}
+import selfpractice.part5supervision.SupervisorStrategy.{Child, Supervisor}
 
 class FaultHandlingDocSpec(_system: ActorSystem)
     extends TestKit(_system)
