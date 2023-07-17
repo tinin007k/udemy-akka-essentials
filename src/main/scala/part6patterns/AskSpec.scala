@@ -1,10 +1,10 @@
-/*
 package part6patterns
 
 import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, Props}
 import akka.testkit.{ImplicitSender, TestKit}
 import akka.util.Timeout
-import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
+import org.scalatest.{BeforeAndAfterAll}
+import org.scalatest.wordspec.AnyWordSpecLike
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -15,7 +15,7 @@ import akka.pattern.ask
 import akka.pattern.pipe
 
 class AskSpec extends TestKit(ActorSystem("AskSpec"))
-  with ImplicitSender with WordSpecLike with BeforeAndAfterAll {
+  with ImplicitSender with AnyWordSpecLike with BeforeAndAfterAll {
 
   override def afterAll(): Unit = {
     TestKit.shutdownActorSystem(system)
@@ -135,7 +135,6 @@ object AskSpec {
       // step 5 - pipe the resulting future to the actor you want to send the result to
       /*
         When the future completes, send the response to the actor ref in the arg list.
-       */
       responseFuture.pipeTo(sender())
     }
   }
